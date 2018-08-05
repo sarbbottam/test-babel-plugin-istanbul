@@ -1,0 +1,60 @@
+{
+  "name": "test-babel-plugin-istanbul",
+  "version": "0.0.0",
+  "description": "test-babel-plugin-istanbul",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:sarbbottam/test-babel-plugin-istanbul.git"
+  },
+  "license": "MIT",
+  "author": "Sarbbottam Bandyopadhyay",
+  "scripts": {
+    "start": "webpack-dev-server --content-base=example",
+    "lint": "xo",
+    "test": "npm run lint && nyc --reporter=text --reporter=lcov mocha --require babel-register test/*.test.js",
+    "test:plugin": "npm run lint && cross-env NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --require babel-register test/*.test.js"
+  },
+  "dependencies": {
+    "react": "^16.4.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-istanbul": "^4.1.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "cross-env": "^5.2.0",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
+    "eslint-config-xo-react": "^0.17.0",
+    "eslint-plugin-react": "^7.10.0",
+    "jsdom": "^11.11.0",
+    "mocha": "^5.2.0",
+    "nyc": "^12.0.2",
+    "react-dom": "^16.4.1",
+    "webpack": "^4.15.1",
+    "webpack-cli": "^3.0.8",
+    "webpack-dev-server": "^3.1.4",
+    "xo": "^0.21.1"
+  },
+  "xo": {
+    "extends": "xo-react",
+    "envs": [
+      "mocha",
+      "browser"
+    ],
+    "esnext": true,
+    "space": true,
+    "rules": {
+      "linebreak-style": 0,
+      "capitalized-comments": 0
+    },
+    "ignores": [
+      "build",
+      "example/index.js"
+    ]
+  }
+}
