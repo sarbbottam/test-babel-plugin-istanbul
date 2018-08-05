@@ -2,7 +2,7 @@
   "presets": ["env", "react"],
   "env": {
     "test": {
-      "plugins": [ "__coverage__" ]
+      "plugins": [ "istanbul" ]
     }
   }
 }

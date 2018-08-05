@@ -12,8 +12,8 @@
   "scripts": {
     "start": "webpack-dev-server --content-base=example",
     "lint": "xo",
-    "test": "npm run lint && nyc --reporter=text --reporter=lcov mocha --require babel-register test/*.test.js",
-    "test:plugin": "npm run lint && cross-env NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --require babel-register test/*.test.js"
+    "test": "npm run lint && nyc mocha --require babel-register test/*.test.js",
+    "test:plugin": "npm run lint && cross-env NODE_ENV=test nyc mocha --require babel-register test/*.test.js"
   },
   "dependencies": {
     "react": "^16.4.1"
@@ -56,5 +56,16 @@
       "build",
       "example/index.js"
     ]
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }
